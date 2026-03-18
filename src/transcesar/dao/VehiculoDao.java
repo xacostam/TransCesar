@@ -25,8 +25,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 =======
 import java.io.*;
+<<<<<<< HEAD
 import java.util.*;
 >>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
+=======
+>>>>>>> ff2051d (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
 
 public class VehiculoDao {
 >>>>>>> 499ed3f (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
@@ -41,6 +44,7 @@ public class VehiculoDao {
         }
 
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     
@@ -180,4 +184,6 @@ public class VehiculoDao {
         }
     }
 >>>>>>> 72da723 (feat:se creo el metodo cambiarestados)
+=======
+>>>>>>> ff2051d (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
 }
