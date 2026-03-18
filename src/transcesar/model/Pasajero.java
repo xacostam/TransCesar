@@ -4,10 +4,13 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class Pasajero {
+public abstract class Pasajero extends Persona {
     
+    protected double descuento;
+    public Pasajero(String nombre, String documento) {
+        super(nombre, documento);
+    }
+    public double getDescuento() {
+        return descuento;
+    }
 }
