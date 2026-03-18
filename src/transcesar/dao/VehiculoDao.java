@@ -148,5 +148,36 @@ public class VehiculoDao {
         }
         return null;
     }
+<<<<<<< HEAD
 >>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
+=======
+    
+     public void cambiarEstado(String archivo, String placa, String nuevoEstado) {
+         
+        try {
+            File file = new File(archivo);
+            List<String> lineas = new ArrayList<>();
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.contains(placa)) {
+                    String[] datos = linea.split(";");
+                    datos[2] = nuevoEstado;
+                    linea = String.join(";", datos);
+                }
+                lineas.add(linea);
+            }
+            br.close();
+            FileWriter fw = new FileWriter(file);
+            for (String l : lineas) {
+                fw.write(l + "\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+
+            System.out.println("Error cambiando estado");
+        }
+    }
+>>>>>>> 72da723 (feat:se creo el metodo cambiarestados)
 }
