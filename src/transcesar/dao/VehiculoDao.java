@@ -5,6 +5,7 @@
 package transcesar.dao;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,6 +23,10 @@ public class VehiculoDao {
 =======
 import java.io.FileWriter;
 import java.io.IOException;
+=======
+import java.io.*;
+import java.util.*;
+>>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
 
 public class VehiculoDao {
 >>>>>>> 499ed3f (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
@@ -37,7 +42,10 @@ public class VehiculoDao {
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+=======
+>>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
     public List<String> listarAuto(String archivo) {
 
         List<String> lista = new ArrayList<>();
@@ -60,9 +68,13 @@ public class VehiculoDao {
     }
     
     public String buscarAuto(String archivo, String placa) {
+<<<<<<< HEAD
 
         try {
 
+=======
+        try {
+>>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
             BufferedReader br = new BufferedReader(new FileReader(archivo));
             String linea;
 
@@ -72,6 +84,7 @@ public class VehiculoDao {
                     br.close();
                     return linea;
                 }
+<<<<<<< HEAD
 
             }
 
@@ -127,4 +140,13 @@ public class VehiculoDao {
     
 =======
 >>>>>>> 499ed3f (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
+=======
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("Error buscando vehículo");
+        }
+        return null;
+    }
+>>>>>>> 6dc9b94 (feat:se creo el metodo listarAuto)
 }
