@@ -4,6 +4,7 @@
  */
 package transcesar.dao;
 
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -18,6 +19,12 @@ import java.util.List;
  */
 public class VehiculoDao {
    
+=======
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class VehiculoDao {
+>>>>>>> 499ed3f (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
     public void registrarAuto(String archivo, String datos) {
 
         try {
@@ -29,6 +36,7 @@ public class VehiculoDao {
         }
 
     }
+<<<<<<< HEAD
     
     public List<String> listarAuto(String archivo) {
 
@@ -117,4 +125,6 @@ public class VehiculoDao {
     }
     
     
+=======
+>>>>>>> 499ed3f (feat: se creo la clase vehiculoDao y el metodo registrarAuto)
 }

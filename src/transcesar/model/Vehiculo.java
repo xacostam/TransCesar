@@ -3,11 +3,12 @@ package transcesar.model;
 
 
 public abstract class  Vehiculo {
+
     protected String placa;
     protected String ruta;
     protected String estado;
     protected int capacidad;
-    
+
     public Vehiculo(String placa, String ruta, String estado, int capacidad) {
         this.placa = placa;
         this.ruta = ruta;
@@ -35,3 +36,4 @@ public abstract class  Vehiculo {
         this.estado = estado;
     }
 }
+
