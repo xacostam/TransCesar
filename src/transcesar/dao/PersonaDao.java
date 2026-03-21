@@ -17,4 +17,16 @@ public class PersonaDao {
         } catch (IOException e) {
         }
     }
+    public List<String> listarPasajeros() {
+        List<String> lista = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null)
+                lista.add(linea);
+            br.close();
+        } catch (IOException e) {
+        }
+        return lista;
+    }
 }
