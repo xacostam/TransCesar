@@ -4,10 +4,18 @@
  */
 package transcesar.dao;
 
-/**
- *
- * @author xavia
- */
+import java.io.*;
+import java.util.*;
+
 public class TicketDao {
-    
+    String archivo = "tickets.txt";
+    public void guardarTicket(String datos) {
+        try {
+            FileWriter fw = new FileWriter(archivo, true);
+            fw.write(datos + "\n");
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("Error guardando ticket");
+        }
+    }
 }
