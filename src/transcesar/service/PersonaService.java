@@ -14,4 +14,8 @@ public class PersonaService {
 
         dao.registrarPasajero(datos);
     }
+    public void listarPasajeros() {
+
+        dao.listarPasajeros().forEach(System.out::println);
+    }
 }
