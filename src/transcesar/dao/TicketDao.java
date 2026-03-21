@@ -9,6 +9,7 @@ import java.util.*;
 
 public class TicketDao {
     String archivo = "tickets.txt";
+    
     public void guardarTicket(String datos) {
         try {
             FileWriter fw = new FileWriter(archivo, true);
@@ -18,4 +19,24 @@ public class TicketDao {
             System.out.println("Error guardando ticket");
         }
     }
+    public List<String> listarTickets() {
+
+        List<String> lista = new ArrayList<>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null)
+                lista.add(linea);
+
+            br.close();
+
+        } catch (IOException e) {
+            System.out.println("Error leyendo tickets");
+        }
+
+        return lista;
+    }
+
 }
