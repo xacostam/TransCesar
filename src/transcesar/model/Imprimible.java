@@ -4,10 +4,6 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class Imprimible {
-    
+public interface Imprimible {
+    void imprimirDetalle();
 }

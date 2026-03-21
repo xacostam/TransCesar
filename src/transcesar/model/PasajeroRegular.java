@@ -4,10 +4,9 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class PasajeroRegular {
-    
+public class PasajeroRegular extends Pasajero {
+    public PasajeroRegular(String nombre, String documento) {
+        super(nombre, documento);
+        this.descuento = 0;
+    }  
 }

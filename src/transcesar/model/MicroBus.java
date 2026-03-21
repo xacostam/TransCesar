@@ -4,10 +4,15 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class MicroBus {
-    
+public class MicroBus extends Vehiculo {
+
+    private int tarifaBase = 10000;
+
+    public MicroBus(String placa, String ruta, String estado) {
+        super(placa, ruta, estado, 25);
+    }
+
+    public int getTarifaBase() {
+        return tarifaBase;
+    }
 }

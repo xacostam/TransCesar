@@ -4,10 +4,6 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class Calculable {
-    
+public interface  Calculable {
+    double calcularTotal();
 }

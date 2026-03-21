@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class Bus {
+
+public class Bus extends Vehiculo {
+
+    private int tarifaBase = 15000;
+
+    public Bus(String placa, String ruta, String estado) {
+        super(placa, ruta, estado, 45);
+    }
     
+    public int getTarifaBase() {
+        return tarifaBase;
+    }
 }

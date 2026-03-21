@@ -4,10 +4,13 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
-public class Conductor {
-    
+public class Conductor extends Persona {
+    private String licencia;
+    public Conductor(String nombre, String documento, String licencia) {
+        super(nombre, documento);
+        this.licencia = licencia;
+    }
+    public String getLicencia() {
+        return licencia;
+    } 
 }
