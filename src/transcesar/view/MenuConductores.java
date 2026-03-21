@@ -6,15 +6,15 @@ package transcesar.view;
 
 import java.util.Scanner;
 
-public class MenuPasajeros {
+public class MenuConductores {
 
     private Scanner scanner = new Scanner(System.in);
 
     public void mostrarMenu() {
         while (true) {
-            System.out.println("=== Menú de Pasajeros ===");
-            System.out.println("1. Registrar Pasajero");
-            System.out.println("2. Listar Pasajeros");
+            System.out.println("=== Menú de Conductores ===");
+            System.out.println("1. Registrar Conductor");
+            System.out.println("2. Listar Conductores");
             System.out.println("3. Volver al Menú Principal");
             System.out.print("Seleccione una opción: ");
 
@@ -23,10 +23,10 @@ public class MenuPasajeros {
 
             switch (opcion) {
                 case 1:
-                    registrarPasajero();
+                    registrarConductor();
                     break;
                 case 2:
-                    listarPasajeros();
+                    listarConductores();
                     break;
                 case 3:
                     return; // Volver al Menú Principal
@@ -36,11 +36,15 @@ public class MenuPasajeros {
         }
     }
 
-    private void registrarPasajero() {
-        // Lógica para registrar un pasajero
+    private void registrarConductor() {
+        System.out.println("=== Registrar Conductor ===");
+        // Aquí iría la lógica para registrar un conductor
+        System.out.println("Funcionalidad no implementada.");
     }
 
-    private void listarPasajeros() {
-        // Lógica para listar los pasajeros
+    private void listarConductores() {
+        System.out.println("=== Listar Conductores ===");
+        // Aquí iría la lógica para listar los conductores
+        System.out.println("Funcionalidad no implementada.");
     }
 }

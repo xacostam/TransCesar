@@ -4,17 +4,19 @@
  */
 package transcesar.view;
 
+
+
 import java.util.Scanner;
 
-public class MenuPasajeros {
+public class MenuTickets {
 
     private Scanner scanner = new Scanner(System.in);
 
     public void mostrarMenu() {
         while (true) {
-            System.out.println("=== Menú de Pasajeros ===");
-            System.out.println("1. Registrar Pasajero");
-            System.out.println("2. Listar Pasajeros");
+            System.out.println("=== Menú de Tickets ===");
+            System.out.println("1. Vender Ticket");
+            System.out.println("2. Listar Tickets");
             System.out.println("3. Volver al Menú Principal");
             System.out.print("Seleccione una opción: ");
 
@@ -23,24 +25,10 @@ public class MenuPasajeros {
 
             switch (opcion) {
                 case 1:
-                    registrarPasajero();
+                    venderTicket();
                     break;
                 case 2:
-                    listarPasajeros();
+                    listarTickets();
                     break;
                 case 3:
                     return; // Volver al Menú Principal
-                default:
-                    System.out.println("Opción inválida. Intente nuevamente.");
-            }
-        }
-    }
-
-    private void registrarPasajero() {
-        // Lógica para registrar un pasajero
-    }
-
-    private void listarPasajeros() {
-        // Lógica para listar los pasajeros
-    }
-}
