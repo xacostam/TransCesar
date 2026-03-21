@@ -29,4 +29,17 @@ public class PersonaDao {
         }
         return lista;
     }
+    public String buscarPasajero(String documento) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+
+                if (linea.contains(documento))
+                    return linea;
+            }
+        } catch (IOException e) {
+        }
+        return null;
+    }
 }
