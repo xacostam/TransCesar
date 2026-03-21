@@ -4,10 +4,17 @@
  */
 package transcesar.dao;
 
-/**
- *
- * @author xavia
- */
+import java.io.*;
+import java.util.*;
+
 public class PersonaDao {
-    
+    String archivo = "pasajeros.txt";
+    public void registrarPasajero(String datos) {
+        try {
+            FileWriter fw = new FileWriter(archivo, true);
+            fw.write(datos + "\n");
+            fw.close();
+        } catch (IOException e) {
+        }
+    }
 }
