@@ -38,5 +38,25 @@ public class TicketDao {
 
         return lista;
     }
+    public String buscarTicket(String id) {
 
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+
+                if (linea.startsWith(id + ";"))
+                    return linea;
+            }
+
+            br.close();
+
+        } catch (IOException e) {
+            System.out.println("Error buscando ticket");
+        }
+
+        return null;
+    }
 }
+
