@@ -18,4 +18,13 @@ public class PersonaService {
 
         dao.listarPasajeros().forEach(System.out::println);
     }
+     public void buscarPasajero(String documento) {
+
+        String resultado = dao.buscarPasajero(documento);
+
+        if (resultado != null)
+            System.out.println(resultado);
+        else
+            System.out.println("Pasajero no encontrado");
+    }
 }
