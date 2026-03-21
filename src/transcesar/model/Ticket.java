@@ -4,10 +4,31 @@
  */
 package transcesar.model;
 
-/**
- *
- * @author xavia
- */
 public class Ticket {
     
+    private String id;
+    private String documentoPasajero;
+    private String placaVehiculo;
+    private String fecha;
+    private String origen;
+    private String destino;
+    private double valorFinal;
+
+    public Ticket(String id, String documentoPasajero, String placaVehiculo,
+                  String fecha, String origen, String destino, double valorFinal) {
+
+        this.id = id;
+        this.documentoPasajero = documentoPasajero;
+        this.placaVehiculo = placaVehiculo;
+        this.fecha = fecha;
+        this.origen = origen;
+        this.destino = destino;
+        this.valorFinal = valorFinal;
+    }
+
+    public String toString() {
+        return id + ";" + documentoPasajero + ";" + placaVehiculo + ";" +
+               fecha + ";" + origen + ";" + destino + ";" + valorFinal;
+    }
 }
+
