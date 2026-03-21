@@ -51,4 +51,8 @@ public class TicketService {
         vehiculoDAO.cambiarEstado("bus.txt", placa, v[2]);
         System.out.println("Ticket vendido correctamente");
     }
+    public void listarTickets() {
+
+        ticketDAO.listarTickets().forEach(System.out::println);
+    }
 }
