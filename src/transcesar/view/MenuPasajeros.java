@@ -4,10 +4,17 @@
  */
 package transcesar.view;
 
-/**
- *
- * @author xavia
- */
+import java.util.Scanner;
+import transcesar.service.PersonaService;
+
+
 public class MenuPasajeros {
-    
+    private  PersonaService service;
+    private  Scanner        sc;
+
+    public MenuPasajeros(PersonaService service, Scanner sc) {
+        this.service = service;
+        this.sc = sc;
+    }
+
 }
