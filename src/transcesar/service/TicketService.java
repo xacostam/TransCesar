@@ -55,4 +55,23 @@ public class TicketService {
 
         ticketDAO.listarTickets().forEach(System.out::println);
     }
+    
+     public void verDetalleTicket(String id) {
+    
+         String ticket = ticketDAO.buscarTicket(id);
+        if (ticket == null) {
+            System.out.println("Ticket no encontrado");
+            return;
+        }
+        String[] t = ticket.split(";");
+        
+        System.out.println("====== DETALLE DEL TICKET ======");
+        System.out.println("ID: " + t[0]);
+        System.out.println("Pasajero: " + t[1]);
+        System.out.println("Vehículo: " + t[2]);
+        System.out.println("Fecha: " + t[3]);
+        System.out.println("Origen: " + t[4]);
+        System.out.println("Destino: " + t[5]);
+        System.out.println("Valor Final: $" + t[6]);
+    }
 }
