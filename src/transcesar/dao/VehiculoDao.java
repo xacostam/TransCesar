@@ -50,5 +50,30 @@ public class VehiculoDao {
         return lista;
     }
     
+    public String buscarAuto(String archivo, String placa) {
+
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+
+                if (linea.contains(placa)) {
+                    br.close();
+                    return linea;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException e) {
+            System.out.println("Error buscando vehículo");
+        }
+
+        return null;
+    }
+    
     
 }
