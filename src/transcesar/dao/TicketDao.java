@@ -20,42 +20,30 @@ public class TicketDao {
         }
     }
     public List<String> listarTickets() {
-
         List<String> lista = new ArrayList<>();
-
         try {
             BufferedReader br = new BufferedReader(new FileReader(archivo));
             String linea;
-
             while ((linea = br.readLine()) != null)
                 lista.add(linea);
-
             br.close();
-
         } catch (IOException e) {
             System.out.println("Error leyendo tickets");
         }
-
         return lista;
     }
     public String buscarTicket(String id) {
-
         try {
             BufferedReader br = new BufferedReader(new FileReader(archivo));
             String linea;
-
             while ((linea = br.readLine()) != null) {
-
                 if (linea.startsWith(id + ";"))
                     return linea;
             }
-
             br.close();
-
         } catch (IOException e) {
             System.out.println("Error buscando ticket");
         }
-
         return null;
     }
 }
