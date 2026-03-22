@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ReservaService {
   ReservaDao dao = new ReservaDao();
-
+  
     public void crearReserva(String id, String documento, String placa) {
         String fecha = LocalDate.now().toString();
         Reserva r = new Reserva(id, documento, placa, fecha, "ACTIVA");
