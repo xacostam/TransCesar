@@ -15,7 +15,19 @@ import transcesar.service.TicketService;
 
 public class ReservaService {
   ReservaDao dao = new ReservaDao();
-  
+    private boolean estaExpirada(String fechaReserva) {
+    try {
+        java.time.LocalDateTime fecha =
+                java.time.LocalDateTime.parse(fechaReserva);
+        java.time.LocalDateTime ahora =
+                java.time.LocalDateTime.now();
+        long horas = java.time.Duration.between(fecha, ahora).toHours();
+        return horas >= 24;
+    } catch (Exception e) {
+        System.out.println("Error en formato de fecha: " + fechaReserva);
+        return false;
+     }
+    }
     public void crearReserva(String id, String documento, String placa) {
         String fecha = LocalDate.now().toString();
         Reserva r = new Reserva(id, documento, placa, fecha, "ACTIVA");
@@ -75,21 +87,15 @@ public class ReservaService {
         }
     }
     public void historialReservasPorPasajero(String documento) {
-
     boolean encontrado = false;
-
     for (String r : dao.listar()) {
-
         String[] datos = r.split(";");
-
         if (datos[1].equals(documento)) {
-
             System.out.println("ID: " + datos[0]);
             System.out.println("Vehículo: " + datos[2]);
             System.out.println("Fecha: " + datos[3]);
             System.out.println("Estado: " + datos[4]);
             System.out.println("---------------------------");
-
             encontrado = true;
         }
     }
