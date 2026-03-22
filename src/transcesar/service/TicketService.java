@@ -13,11 +13,18 @@ import java.time.LocalDate;
 
 public class TicketService {
     
+    String fecha = java.time.LocalDate.now().toString();
     TicketDao ticketDAO = new TicketDao();
     VehiculoDao vehiculoDAO = new VehiculoDao();
     PersonaDao pasajeroDAO = new PersonaDao();
+    
     public void venderTicket(String id, String documento, String placa,String origen, String destino) {
- 
+        
+     int ticketsHoy = contarTicketsHoy(documento);
+    if (ticketsHoy >= 3) {
+        System.out.println("Ya tiene 3 tickets hoy (" + ticketsHoy + ")");
+        return;
+    }
         String vehiculo = vehiculoDAO.buscarAuto("bus.txt", placa);
         if (vehiculo == null) {
             System.out.println("Vehículo no encontrado");
@@ -37,11 +44,15 @@ public class TicketService {
             return;
         }
         String[] p = pasajero.split(";");
-
+ 
         double descuento = Double.parseDouble(p[3]);
         double tarifa = 10000; 
+       
+        if (esFestivo(fecha)) {
+        tarifa *= 1.20;
+        System.out.println("Tarifa incrementada por festivo");
+    }
         double total = tarifa - (tarifa * descuento);
-        
         String fecha = LocalDate.now().toString();
         Ticket t = new Ticket(id, documento, placa, fecha, origen, destino, total);
         ticketDAO.guardarTicket(t.toString());
@@ -88,5 +99,19 @@ public class TicketService {
     }
 
     return contador;
+}
+         private boolean esFestivo(String fecha) {
+
+    String[] festivos = {
+        "2026-01-01",
+        "2026-12-25",
+        "2026-07-20"
+    };
+
+    for (String f : festivos) {
+        if (f.equals(fecha)) return true;
+    }
+
+    return false;
 }
 }
