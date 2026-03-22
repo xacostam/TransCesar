@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/User/TransCesar/src/transcesar/view/MenuVehiculos.java</file>
             <file>file:/C:/Users/User/TransCesar/src/transcesar/view/MenuPrincipal.java</file>
+            <file>file:/C:/Users/User/TransCesar/src/transcesar/service/VehiculoService.java</file>
+            <file>file:/C:/Users/User/TransCesar/src/transcesar/dao/VehiculoDao.java</file>
         </group>
     </open-files>
 </project-private>
