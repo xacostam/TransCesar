@@ -28,9 +28,11 @@ public class ReservaDao {
             String l;
             while ((l = br.readLine()) != null)
                 lista.add(l);
+            br.close();
         } catch (Exception e) {}
         return lista;
     }
+    
      public void actualizarReservas(List<String> nuevasLineas) {
 
         try {
