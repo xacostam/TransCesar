@@ -5,6 +5,7 @@
 package transcesar.view;
 
 import java.util.Scanner;
+import transcesar.service.VehiculoService;
 
 public class MenuVehiculos {
 
@@ -37,10 +38,38 @@ public class MenuVehiculos {
     }
 
     private void registrarVehiculo() {
-        // Lógica para registrar un vehículo
+       Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Ingrese la placa del vehículo: ");
+    String placa = scanner.nextLine();
+
+    System.out.print("Ingrese la ruta del vehículo: ");
+    String ruta = scanner.nextLine();
+
+    System.out.print("Ingrese el estado del vehículo: ");
+    String estado = scanner.nextLine();
+
+    System.out.print("Ingrese la capacidad del vehículo: ");
+    int capacidad = scanner.nextInt();
+    scanner.nextLine(); 
+
+    
+    VehiculoService vehiculoService = new VehiculoService();
+
+   
+    vehiculoService.registrarAuto("vehiculos.txt", placa, ruta, estado, capacidad);
+
+    System.out.println("Vehículo registrado correctamente.");
     }
 
     private void listarVehiculos() {
-        // Lógica para listar los vehículos
-    }
+   
+    String archivo = "vehiculos.txt";
+
+    
+    VehiculoService vehiculoService = new VehiculoService();
+
+    
+    vehiculoService.listarAuto(archivo);
+}
 }
