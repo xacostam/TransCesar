@@ -47,4 +47,30 @@ public class ReservaService {
             System.out.println("Error confirmando reserva");
         }
     }
+    public void cancelarReserva(String id) {
+        List<String> nuevasLineas = new ArrayList<>();
+        boolean encontrada = false;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("reservas.txt"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
+                if (datos[0].equals(id)) {
+
+                    datos[4] = "CANCELADA";
+                    linea = String.join(";", datos);
+                    encontrada = true;
+                }
+                nuevasLineas.add(linea);
+            }
+            br.close();
+            dao.actualizarReservas(nuevasLineas);
+            if (encontrada)
+                System.out.println("Reserva cancelada");
+            else
+                System.out.println("Reserva no encontrada");
+        } catch (Exception e) {
+            System.out.println("Error cancelando reserva");
+        }
+    }
 }
