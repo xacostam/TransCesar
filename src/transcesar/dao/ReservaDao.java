@@ -4,8 +4,11 @@
  */
 package transcesar.dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservaDao {
      String archivo = "reservas.txt";
@@ -18,6 +21,14 @@ public class ReservaDao {
             fw.close();
         } catch (Exception e) {}
     }
-
-  
+    public List<String> listar() {
+        List<String> lista = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String l;
+            while ((l = br.readLine()) != null)
+                lista.add(l);
+        } catch (Exception e) {}
+        return lista;
+    }
 }
