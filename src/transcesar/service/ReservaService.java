@@ -73,4 +73,27 @@ public class ReservaService {
             System.out.println("Error cancelando reserva");
         }
     }
+    public void historialReservasPorPasajero(String documento) {
+
+    boolean encontrado = false;
+
+    for (String r : dao.listar()) {
+
+        String[] datos = r.split(";");
+
+        if (datos[1].equals(documento)) {
+
+            System.out.println("ID: " + datos[0]);
+            System.out.println("Vehículo: " + datos[2]);
+            System.out.println("Fecha: " + datos[3]);
+            System.out.println("Estado: " + datos[4]);
+            System.out.println("---------------------------");
+
+            encontrado = true;
+        }
+    }
+
+    if (!encontrado)
+        System.out.println("No hay reservas para este pasajero");
+}
 }
