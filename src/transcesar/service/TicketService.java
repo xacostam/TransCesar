@@ -65,7 +65,24 @@ public class TicketService {
 
         ticketDAO.listarTickets().forEach(System.out::println);
     }
-    
+    public void filtrarPorFecha(String fecha) {
+
+    ticketDAO.listarTickets().forEach(t -> {
+
+        String[] d = t.split(";");
+
+        if (d[3].equals(fecha))
+            System.out.println(t);
+         });
+     }
+    public void filtrarPorVehiculo(String placa) {
+
+    ticketDAO.listarTickets().forEach(t -> {
+
+        if (t.contains(";" + placa + ";"))
+            System.out.println(t);
+    });
+    }
      public void verDetalleTicket(String id) {
     
          String ticket = ticketDAO.buscarTicket(id);
