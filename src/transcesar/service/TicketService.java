@@ -88,7 +88,34 @@ public class TicketService {
             System.out.println(t);
          });
      }
+    public void resumenDelDia() {
+
+    String hoy = java.time.LocalDate.now().toString();
+    int totalTickets = 0;
+    double totalDinero = 0;
+
+    for (String t : ticketDAO.listarTickets()) {
+        String[] d = t.split(";");
+
+        if (d[3].equals(hoy)) {
+            totalTickets++;
+            totalDinero += Double.parseDouble(d[6]);
+        }
+     }
+
+      imprimirDetalle(totalTickets, totalDinero);
+     }
+     public void imprimirDetalle(int totalTickets, double totalDinero) {
+
+     System.out.println("====== RESUMEN DEL DÍA ======");
+     System.out.println("Tickets vendidos: " + totalTickets);
+     System.out.println("Total recaudado: $" + totalDinero);
+     }
+   
      public void verDetalleTicket(String id) {
+         String hoy = java.time.LocalDate.now().toString();
+         int totalTickets = 0;
+         double totalDinero = 0;
     
          String ticket = ticketDAO.buscarTicket(id);
         if (ticket == null) {
@@ -105,6 +132,9 @@ public class TicketService {
         System.out.println("Origen: " + t[4]);
         System.out.println("Destino: " + t[5]);
         System.out.println("Valor Final: $" + t[6]);
+        
+        
+        
     }
      private int contarTicketsHoy(String documento) {
 
