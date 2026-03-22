@@ -16,9 +16,8 @@ public class TicketService {
     TicketDao ticketDAO = new TicketDao();
     VehiculoDao vehiculoDAO = new VehiculoDao();
     PersonaDao pasajeroDAO = new PersonaDao();
-    public void venderTicket(String id, String documento, String placa,
-                             String origen, String destino) {
-
+    public void venderTicket(String id, String documento, String placa,String origen, String destino) {
+ 
         String vehiculo = vehiculoDAO.buscarAuto("bus.txt", placa);
         if (vehiculo == null) {
             System.out.println("Vehículo no encontrado");
@@ -74,4 +73,20 @@ public class TicketService {
         System.out.println("Destino: " + t[5]);
         System.out.println("Valor Final: $" + t[6]);
     }
+     private int contarTicketsHoy(String documento) {
+
+    int contador = 0;
+    String hoy = java.time.LocalDate.now().toString();
+
+    for (String t : ticketDAO.listarTickets()) {
+
+        String[] datos = t.split(";");
+
+        if (datos[1].equals(documento) && datos[3].equals(hoy)) {
+            contador++;
+        }
+    }
+
+    return contador;
+}
 }
