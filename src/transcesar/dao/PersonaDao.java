@@ -42,4 +42,37 @@ public class PersonaDao {
         }
         return null;
     }
+    public void registrarConductor(String datos) {
+        try {
+            FileWriter fw = new FileWriter(archivo, true);
+            fw.write(datos + "\n");
+            fw.close();
+        } catch (IOException e) {
+        }
+    }
+    public List<String> listarConductor() {
+        List<String> lista = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null)
+                lista.add(linea);
+            br.close();
+        } catch (IOException e) {
+        }
+        return lista;
+    }
+    public String buscarConductor(String documento) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+
+                if (linea.contains(documento))
+                    return linea;
+            }
+        } catch (IOException e) {
+        }
+        return null;
+    }
 }

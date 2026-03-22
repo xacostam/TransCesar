@@ -28,7 +28,7 @@ public class MenuPrincipal {
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -48,7 +48,7 @@ public class MenuPrincipal {
                     break;
                 case 6:
                     System.out.println("¡Hasta luego!");
-                    return; // Salir del programa
+                    return; 
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
             }

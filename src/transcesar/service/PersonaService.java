@@ -27,4 +27,23 @@ public class PersonaService {
         else
             System.out.println("Pasajero no encontrado");
     }
+     public void registrarConductor(String cedula, String nombre,  String num_licencia, String cate_licencia) {
+
+        String datos = cedula+ ";" + nombre + ";" + num_licencia + ";" + cate_licencia+ ";";
+
+        dao.registrarConductor(datos);
+    }
+    public void listarConductor() {
+
+        dao.listarConductor().forEach(System.out::println);
+    }
+     public void buscarConductor(String cedula) {
+
+        String resultado = dao.buscarConductor(cedula);
+
+        if (resultado != null)
+            System.out.println(resultado);
+        else
+            System.out.println("Conductor no encontrado");
+    }
 }

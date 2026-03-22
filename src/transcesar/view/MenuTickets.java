@@ -24,8 +24,7 @@ import transcesar.service.TicketService;
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
-
+            scanner.nextLine(); 
             switch (opcion) {
                 case 1:
                     venderTicket();
@@ -34,7 +33,7 @@ import transcesar.service.TicketService;
                     listarTickets();
                     break;
                 case 3:
-                    return; // Volver al Menú Principal
+                    return;
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
             }

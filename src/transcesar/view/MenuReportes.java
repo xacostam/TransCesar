@@ -47,18 +47,18 @@ public class MenuReportes {
     }
 
     private void consultarTicketsPorFecha() {
-        // Lógica para consultar tickets por fecha
+        
     }
 
     private void consultarTicketsPorVehiculo() {
-        // Lógica para consultar tickets por vehículo
+        
     }
 
     private void consultarTicketsPorPasajero() {
-        // Lógica para consultar tickets por tipo de pasajero
+        
     }
 
     private void mostrarResumenDelDia() {
-        // Lógica para mostrar el resumen del día actual
+      
     }
 }

@@ -4,7 +4,9 @@
  */
 package transcesar.view;
 
+import java.util.List;
 import java.util.Scanner;
+import transcesar.dao.PersonaDao;
 
 public class MenuPasajeros {
 
@@ -19,7 +21,7 @@ public class MenuPasajeros {
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -29,7 +31,7 @@ public class MenuPasajeros {
                     listarPasajeros();
                     break;
                 case 3:
-                    return; // Volver al Menú Principal
+                    return; 
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
             }
@@ -37,10 +39,51 @@ public class MenuPasajeros {
     }
 
     private void registrarPasajero() {
-        // Lógica para registrar un pasajero
+        Scanner sc = new Scanner(System.in);
+
+    System.out.println("=== Registrar Pasajero ===");
+
+    System.out.print("Cedula: ");
+    String documento = sc.nextLine();
+
+    System.out.print("Nombre: ");
+    String nombre = sc.nextLine();
+
+    System.out.print("Tipo Pasajero");
+    String tipopasajero = sc.nextLine();
+
+    
+    String datos = documento + ";" + nombre + ";"  + tipopasajero;
+
+    
+    PersonaDao dao = new PersonaDao();
+    dao.registrarPasajero(datos);
+
+    System.out.println("Conductor registrado correctamente");
     }
 
     private void listarPasajeros() {
-        // Lógica para listar los pasajeros
+        System.out.println("=== LISTA DE CONDUCTORES ===");
+
+    PersonaDao dao = new PersonaDao();
+    List<String> lista = dao.listarPasajeros();
+
+    if (lista.isEmpty()) {
+        System.out.println("No hay Pasajeros registrados");
+        return;
+    }
+
+    for (String linea : lista) {
+
+        String[] c = linea.split(";");
+
+        System.out.println("----------------------------");
+        System.out.println("Cedula: " + c[0]);
+        System.out.println("Nombre: " + c[1]);
+        System.out.println("Tipo de pasajero " + c[2]);
+       
+    }
+
+    System.out.println("----------------------------");
     }
 }
