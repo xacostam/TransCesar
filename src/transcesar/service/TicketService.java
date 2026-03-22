@@ -68,7 +68,6 @@ public class TicketService {
     public void filtrarPorFecha(String fecha) {
 
     ticketDAO.listarTickets().forEach(t -> {
-
         String[] d = t.split(";");
 
         if (d[3].equals(fecha))
@@ -76,13 +75,19 @@ public class TicketService {
          });
      }
     public void filtrarPorVehiculo(String placa) {
-
     ticketDAO.listarTickets().forEach(t -> {
-
         if (t.contains(";" + placa + ";"))
             System.out.println(t);
     });
     }
+    
+    public void filtrarPorPasajero(String documento) {
+    ticketDAO.listarTickets().forEach(t -> {
+
+        if (t.contains(";" + documento + ";"))
+            System.out.println(t);
+         });
+     }
      public void verDetalleTicket(String id) {
     
          String ticket = ticketDAO.buscarTicket(id);
