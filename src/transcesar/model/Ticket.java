@@ -30,5 +30,9 @@ public class Ticket {
         return id + ";" + documentoPasajero + ";" + placaVehiculo + ";" +
                fecha + ";" + origen + ";" + destino + ";" + valorFinal;
     }
+
+    public void imprimirDetalle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
 

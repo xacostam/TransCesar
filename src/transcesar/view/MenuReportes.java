@@ -1,8 +1,16 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package transcesar.view;
 
-private Scanner 
-scanner = new Scanner(System.in);
+
+
+import java.util.Scanner;
+
+public class MenuReportes {
+
+    private Scanner scanner = new Scanner(System.in);
 
     public void mostrarMenu() {
         while (true) {
@@ -53,3 +61,4 @@ scanner = new Scanner(System.in);
     private void mostrarResumenDelDia() {
         // Lógica para mostrar el resumen del día actual
     }
+}

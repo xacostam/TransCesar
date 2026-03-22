@@ -7,8 +7,11 @@ package transcesar.view;
 
 
 import java.util.Scanner;
+import transcesar.model.Ticket;
+import transcesar.service.TicketService;
 
-public class MenuTickets {
+
+    public class MenuTickets {
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -32,3 +35,41 @@ public class MenuTickets {
                     break;
                 case 3:
                     return; // Volver al Menú Principal
+                default:
+                    System.out.println("Opción inválida. Intente nuevamente.");
+            }
+        }
+    }
+
+    private void venderTicket() {
+        TicketService service = new TicketService();
+
+        System.out.print("ID: ");
+        String id = scanner.nextLine();
+
+        System.out.print("Documento: ");
+        String documento = scanner.nextLine();
+
+        System.out.print("Placa: ");
+        String placa = scanner.nextLine();
+
+        System.out.print("Origen: ");
+        String origen = scanner.nextLine();
+
+        System.out.print("Destino: ");
+        String destino = scanner.nextLine();
+
+
+        service.venderTicket(id, documento, placa, origen, destino);
+
+
+        service.verDetalleTicket(id);
+    }
+
+    private void listarTickets() {
+        TicketService service = new TicketService();
+        System.out.println("=== Listar Tickets ===");
+        service.listarTickets();
+        
+    }
+}

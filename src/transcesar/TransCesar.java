@@ -4,6 +4,8 @@
  */
 package transcesar;
 
+import transcesar.view.MenuPrincipal;
+
 
 
 /**
@@ -12,11 +14,12 @@ package transcesar;
  */
 public class TransCesar {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-         
+    
+    
+     public static void main(String[] args) {
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.mostrarMenu();
+    }
     }
     
-}
+
