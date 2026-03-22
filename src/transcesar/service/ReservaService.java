@@ -11,6 +11,7 @@ import transcesar.model.Reserva;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import transcesar.service.TicketService;
 
 public class ReservaService {
   ReservaDao dao = new ReservaDao();
@@ -96,4 +97,45 @@ public class ReservaService {
     if (!encontrado)
         System.out.println("No hay reservas para este pasajero");
 }
+    public void convertirReservaATicket(String idReserva) {
+    List<String> nuevasLineas = new ArrayList<>();
+    boolean encontrada = false;
+    TicketService ticketService = new TicketService();
+    try {
+
+        BufferedReader br = new BufferedReader(new FileReader("reservas.txt"));
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            String[] datos = linea.split(";");
+            if (datos[0].equals(idReserva)) {
+                encontrada = true;
+                if (!datos[4].equals("ACTIVA")) {
+                    System.out.println("La reserva no está activa");
+                    nuevasLineas.add(linea);
+                    continue;
+                }
+                String documento = datos[1];
+                String placa = datos[2];
+                ticketService.venderTicket(
+                        "T" + System.currentTimeMillis(), 
+                        documento,
+                        placa,
+                        "Origen",   
+                        "Destino"
+                );
+                datos[4] = "CONFIRMADA";
+                linea = String.join(";", datos);
+            }
+            nuevasLineas.add(linea);
+        }
+        br.close();
+        dao.actualizarReservas(nuevasLineas);
+        if (encontrada)
+            System.out.println("Reserva convertida en ticket");
+        else
+            System.out.println("Reserva no encontrada");
+    } catch (Exception e) {
+        System.out.println("Error convirtiendo reserva");
+    }
+ }
 }
