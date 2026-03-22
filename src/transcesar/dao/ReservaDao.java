@@ -31,4 +31,20 @@ public class ReservaDao {
         } catch (Exception e) {}
         return lista;
     }
+     public void actualizarReservas(List<String> nuevasLineas) {
+
+        try {
+
+            FileWriter fw = new FileWriter(archivo);
+
+            for (String linea : nuevasLineas) {
+                fw.write(linea + "\n");
+            }
+
+            fw.close();
+
+        } catch (Exception e) {
+            System.out.println("Error actualizando reservas");
+        }
+    }
 }
